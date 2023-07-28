@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: invitation-card-ui-service
+  labels:
+    type: ui
+    app: invitation-card
+spec:
+  type: NodePort
+  ports:
+    - targetPort: 80
+      port: 80
+      nodePort: 30002
+  selector:
+    app: invitation-card
+    type: ui
+

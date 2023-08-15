@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: login-api-deployment
+  labels:
+    app: invitation-card-login
+    type: api
+spec:
+  selector:
+    matchLabels:
+      app: invitation-card-login
+      type: back-end
+  replicas: 1
+  template:
+    metadata:
+      name: invitation-card-login-pod
+      labels:
+        app: invitation-card-login
+        type: back-end
+    spec:
+      containers:
+        - name: invitation-card-login-container
+          image: pokhari7353/login:v2
+          ports:
+          - containerPort: 3000

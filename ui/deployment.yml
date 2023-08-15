@@ -10,7 +10,7 @@ spec:
     matchLabels:
       app: invitation-card
       type: ui
-  replicas: 2
+  replicas: 1
   template:
     metadata:
       name: invitation-card-ui-pod
@@ -20,6 +20,6 @@ spec:
     spec:
       containers:
         - name: invitation-card-ui-container
-          image: anupgeorge/invitationcard-image:latest
+          image: anupgeorge/invitationcard-image:20230815T0828361692088116
 
 

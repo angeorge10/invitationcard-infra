@@ -20,6 +20,6 @@ spec:
     spec:
       containers:
         - name: invitation-card-login-container
-          image: pokhari7353/login:v2
+          image: anupgeorge/invitationcard-api-image:latest
           ports:
           - containerPort: 3000

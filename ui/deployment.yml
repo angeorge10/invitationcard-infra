@@ -20,6 +20,6 @@ spec:
     spec:
       containers:
         - name: invitation-card-ui-container
-          image: anupgeorge/invitationcard-image:20230818T0655501692341750
+          image: anupgeorge/invitationcard-image:20230826T1003201693044200
 
 

@@ -1,25 +1,47 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: login-api-deployment
+  name: invitation-card-api-deployment
   labels:
-    app: invitation-card-login
+    app: invitation-card-api
     type: api
 spec:
   selector:
     matchLabels:
-      app: invitation-card-login
+      app: invitation-card-api
       type: back-end
   replicas: 1
   template:
     metadata:
-      name: invitation-card-login-pod
+      name: invitation-card-api-pod
       labels:
-        app: invitation-card-login
+        app: invitation-card-api
         type: back-end
     spec:
       containers:
-        - name: invitation-card-login-container
-          image: anupgeorge/invitationcard-api-image:latest
+        - name: invitation-card-api-container
+          image: anupgeorge/invitationcard-api-image:20230927T0442301695789750
           ports:
           - containerPort: 3000
+          env:
+            - name: DB_HOST
+              value: "192.168.65.2"
+            - name: DB_PORT
+              value: "3306"
+            - name: DB_NAME
+              value: "invitationcard"
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: secrets
+                  key: db_user
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: secrets
+                  key: db_password            
+            - name: TOKEN_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: secrets
+                  key: token_key

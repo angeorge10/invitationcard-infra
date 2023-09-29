@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: invitation-card-api-container
-          image: anupgeorge/invitationcard-api-image:20230927T0442301695789750
+          image: anupgeorge/invitationcard-api-image:20230928T1555331695916533
           ports:
           - containerPort: 3000
           env:

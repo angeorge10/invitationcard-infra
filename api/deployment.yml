@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
         - name: invitation-card-api-container
-          image: anupgeorge/invitationcard-api-image:20230929T0312331695957153
+          image: anupgeorge/invitationcard-api-image:20231005T1744421696527882
           ports:
           - containerPort: 3000
           env:
@@ -45,3 +45,13 @@ spec:
                 secretKeyRef:
                   name: secrets
                   key: token_key
+            - name: EMAIL_ID
+              valueFrom:
+                secretKeyRef:
+                  name: secrets
+                  key: email_id
+            - name: EMAIL_PWD
+              valueFrom:
+                secretKeyRef:
+                  name: secrets
+                  key: email_pwd
